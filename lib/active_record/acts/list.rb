@@ -34,7 +34,7 @@ module ActiveRecord
           configuration = { :column => "position", :scope => "1 = 1" }
           configuration.update(options) if options.is_a?(Hash)
 
-          configuration[:scope] = "#{configuration[:scope]}_id".intern if configuration[:scope].is_a?(Symbol) && configuration[:scope].to_s !~ /_id$/
+          configuration[:scope] = "#{configuration[:scope]}".intern if configuration[:scope].is_a?(Symbol)
 
           if configuration[:scope].is_a?(Symbol)
             scope_condition_method = %(
